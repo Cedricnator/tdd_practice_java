@@ -47,6 +47,9 @@ public class Producto {
    }
    
    public void agregarNombre(String nombre){
+      if (nombre == "") {
+         throw new IllegalArgumentException("El nombre del producto no puede estar vacío");
+      }
       if (nombre.length() > 30) {
          throw new IllegalArgumentException("El nombre del producto no puede tener más de 30 caracteres");
       }
