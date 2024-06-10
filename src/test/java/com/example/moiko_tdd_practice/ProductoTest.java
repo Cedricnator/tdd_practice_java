@@ -112,7 +112,7 @@ public class ProductoTest {
       );
    }
 
-   @DisplayName("Test agregar stock producto vacío retorna error")
+   @DisplayName("Test agregar precio producto retorna precio producto")
    @Test
    void testAgregarPrecioProductoRetornaPrecioProducto(){
       String precioString = "100";
