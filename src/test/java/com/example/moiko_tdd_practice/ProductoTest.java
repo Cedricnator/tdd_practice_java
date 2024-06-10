@@ -50,7 +50,7 @@ public class ProductoTest {
    @DisplayName("Test agregar código producto con formato inválido retorna error")
    @Test
    void testAgregarCodigoProductoFormatoInvalidoRetornaError(){
-   
+      
    }
 
    @DisplayName("Test agregar código producto con fecha actual inválida retorna error")
