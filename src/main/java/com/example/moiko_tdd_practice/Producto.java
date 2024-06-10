@@ -5,15 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Producto {
-   private String codigo;
-   private String nombre;
+   private String  codigo;
+   private String  nombre;
    private Integer stock;
    private Integer precio;
    private String  rutProveedor;
    private String  correoProveedor;
 
-   public Producto(){
-   }
+   public Producto(){}
 
    public Integer convertirStringAEntero(String valor){
       try {
@@ -137,5 +136,13 @@ public class Producto {
    public String getCorreoProveedor(){
       return this.correoProveedor;
    }
+
+   @Override
+   public String toString() {
+      return "Producto [codigo=" + codigo + ", nombre=" + nombre + ", stock=" + stock + ", precio=" + precio
+            + ", rutProveedor=" + rutProveedor + ", correoProveedor=" + correoProveedor + "]";
+   }
+
+   
 
 }
