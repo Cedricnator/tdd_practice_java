@@ -131,7 +131,7 @@ public class ProductoTest {
       assertThrows(
          IllegalArgumentException.class, 
          () -> producto.convertirStringAEntero("esto no es un número"), 
-         "El precio del producto debe ser un número"
+         "El valor proporcionado no es un número válido"
       );
    }
 

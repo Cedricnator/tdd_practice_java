@@ -16,7 +16,11 @@ public class Producto {
    }
 
    public Integer convertirStringAEntero(String valor){
-      return Integer.parseInt(valor);
+      try {
+         return Integer.parseInt(valor);
+      } catch (NumberFormatException e) {
+         throw new IllegalArgumentException("El valor proporcionado no es un número válido");
+      }
    }
 
  
