@@ -67,17 +67,53 @@ public class Producto {
    }
 
    public void agregarPrecio(Integer precio){
+      if (precio <= 0) {
+         throw new IllegalArgumentException("El precio del producto no puede estar vacío");
+      }
       this.precio = precio;
    }
 
    public void agregarRutProveedor(String rutProveedor){
+      if (!esRutValido(rutProveedor)) {
+         throw new IllegalArgumentException("El RUT no es valido");
+      }
       this.rutProveedor = rutProveedor;
    }
 
    public void agregarCorreoProveedor(String correoProveedor){
+      if (correoProveedor == "") {
+         throw new IllegalArgumentException("El correo del proveedor no puede estar vacío");
+      }
+      if (!esCorreoValido(correoProveedor)) {
+         throw new IllegalArgumentException("El correo no es valido");
+      }
       this.correoProveedor = correoProveedor;
    }
 
+   private boolean esRutValido(String rut) {
+      try {
+          rut = rut.toUpperCase();
+          rut = rut.replace(".", "");
+          rut = rut.replace("-", "");
+          int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+  
+          char dv = rut.charAt(rut.length() - 1);
+  
+          int m = 0, s = 1;
+          for (; rutAux != 0; rutAux /= 10) {
+              s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+          }
+          return dv == (char) (s != 0 ? s + 47 : 75);
+      } catch (java.lang.NumberFormatException e) {
+          return false;
+      } catch (java.lang.Exception e) {
+          return false;
+      }
+  }
+
+   private boolean esCorreoValido(String correo){
+      return correo.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
+   }
    public String getCodigo(){
       return this.codigo;
    }
