@@ -1,6 +1,5 @@
 package com.example.moiko_tdd_practice;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,6 +56,9 @@ public class Producto {
    }
 
    public void agregarStock(Integer stock){
+      if (stock < 0) {
+         throw new IllegalArgumentException("El stock del producto no puede ser negativo ni menor a 0");
+      }
       this.stock = stock;
    }
 
