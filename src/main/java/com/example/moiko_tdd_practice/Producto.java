@@ -73,6 +73,7 @@ public class Producto {
    }
 
    public void agregarRutProveedor(String rutProveedor){
+      System.out.println(rutProveedor);
       if (!esRutValido(rutProveedor)) {
          throw new IllegalArgumentException("El RUT no es valido");
       }
